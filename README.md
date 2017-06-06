@@ -1,5 +1,5 @@
 # toast
-Toast, just toast.
+Toast, a simple, lightweight, no-dependencies toast.
 
 # API
 
