@@ -1,5 +1,4 @@
 ;(function() {
-  let holder = null;
   const style = `
     color: rgb(255, 255, 255);
     font-size: 18px;
@@ -28,16 +27,13 @@
   * @return {[Promise]}
   */
   window.toast = (options) => {
+    let holder = document.createElement('div');
+    holder.style.cssText = style;
+    document.body.appendChild(holder);
 
     options = typeof options === 'string'
       ? Object.assign({}, toast.defaults, { text: options })
       : Object.assign({}, toast.defaults, options);
-
-    if (!holder) {
-      holder = document.createElement('div');
-      holder.style.cssText = style;
-      document.body.appendChild(holder);
-    }
 
     holder.innerHTML = options.text;
 
@@ -48,7 +44,7 @@
     setTimeout(() => {
       holder.style.bottom = '200px';
       holder.style.opacity = "1";
-    }, 10)
+    }, 10);
 
     return new Promise(resolve => {
       // After anmiation.
@@ -56,13 +52,11 @@
         /* hide style*/
         holder.style.opacity = 0;
         setTimeout(() => {
-          holder.style.bottom = '100px';
-          holder.style.display = 'none';
-
+          holder.remove();
           resolve();
         }, 1000);
       }, options.time);
-    })
+    });
   };
 
   window.toast.defaults = {

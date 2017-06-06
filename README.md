@@ -19,8 +19,8 @@ toast a message with default params.
     * `width` : `Number` Toast width
 
 # Online Demo
-* [Toast with polyfill](https://zhoukekestar.github.io/toast/test/index.html).
-* [Toast on Chrome. Try ES6/7!](https://zhoukekestar.github.io/toast/test/chrome.html).
+* [Toast with polyfill](https://zhoukekestar.github.io/toast/test/index.html)
+* [Toast on latest Chrome. Try ES6/7!](https://zhoukekestar.github.io/toast/test/chrome.html)
 
   ```js
   async function () {

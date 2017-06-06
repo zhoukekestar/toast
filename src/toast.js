@@ -1,5 +1,4 @@
 ;(function() {
-  var holder = null;
   var style = 'color: rgb(255, 255, 255); font-size: 18px; border-radius: 10px; box-sizing: border-box; text-align: center; z-index: 99999; word-break: break-word; padding: 12px; position: fixed; left: 50%; bottom: 100px; text-shadow: none; width: 160px; margin-left: -80px; opacity: 0; transition: all 1s; background-color: #000; background-color: rgba(0, 0, 0, 0.8); display: none; line-height: 1.3em;';
 
   /* Polyfill Code: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign */
@@ -34,16 +33,13 @@
   * @return {[function]}  [callback function]
   */
   window.toast = function(options, callback) {
+    var holder = document.createElement('div');
+    holder.style.cssText = style;
+    document.body.appendChild(holder);
 
     options = typeof options === 'string'
       ? Object.assign({}, toast.defaults, { text: options })
       : Object.assign({}, toast.defaults, options);
-
-    if (!holder) {
-      holder = document.createElement('div');
-      holder.style.cssText = style;
-      document.body.appendChild(holder);
-    }
 
     holder.innerHTML = options.text;
 
@@ -54,15 +50,14 @@
     setTimeout(function() {
       holder.style.bottom = '200px';
       holder.style.opacity = "1";
-    }, 10)
+    }, 10);
 
     // After anmiation.
     setTimeout(function() {
       /* hide style*/
       holder.style.opacity = 0;
       setTimeout(function () {
-        holder.style.bottom = '100px';
-        holder.style.display = 'none';
+        holder.remove();
 
         /* call callback if exist */
         if (callback) callback();
