@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>toast</title>
+</head>
+<body style='background-color: #fff;'>
+	<button onclick='toast("toast")'>toast</button>
+	<button onclick='toast({text: "This is a long long long long message!", width: 300})'>Specify Width</button>
+  <button onclick='window.tryES6()'>es6</button>
+  <script src='../src/toast.es6.js'></script>
+  <script>
+    tryES6 = async function () {
+      await toast('wait for me!');
+      alert('yeah!');
+    }
+  </script>
+</body>
+</html>
