@@ -32,4 +32,4 @@ toast a message with default params.
 # Browser Compatibility
 | IE 7, 8 | IE 9 | IE 10+, Chrome, Firefox ...|
 | -- | -- | -- |
-| ![IE7](./assets/IE7.png) | ![IE7](./assets/IE9.png) | ![IE7](./assets/IE10.gif) |
+| No animation! ![IE7](./assets/IE7.png) | No animation! ![IE7](./assets/IE9.png) | ![IE7](./assets/IE10.gif) |
